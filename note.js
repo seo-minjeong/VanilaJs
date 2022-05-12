@@ -1,5 +1,4 @@
 // 변수선언
-
 const a = 5;
 let isNico = false;
 
@@ -65,6 +64,7 @@ function handleTitleCheck() {
 title.addEventListener("click", handleTitleCheck);
 
 // 3-4 event
+// 빈 함수를 만든 후 항상 호출해주는것이 중요하다.
 const eventTitle = document.querySelector(".Hello");
 
 function handleTitleCheck() {
@@ -99,3 +99,26 @@ window.addEventListener("resize", handleWindowResize);
 window.addEventListener("copy", handleWindowCopy);
 window.addEventListener("online", handleWindowOnline);
 window.addEventListener("offline", handleWindowOffline);
+
+// 3-7 CSS in javascript
+function handleTitleClick() {
+    // 이렇게 string을 변수를 저장해서 사용하면 더 간단하게 사용할 수 있음.
+    const clickedClass = "clicked";
+
+    h1.className = "active";
+
+    // if문으로 클래스 이름을 변경.
+    if (h1.className === clickedClass) {
+        h1.className = "";
+    } else {
+        h1.className = clickedClass;
+    }
+}
+
+//  3-8 CSS in javascript 2
+// contains로 내가 클래스 리스트를 포함하고 있는지 확인.
+if (h1.classList.contains(clickedClass)) {
+    h1.classList.remove(clickedClass);
+} else {
+    h1.classList.add(clickedClass);
+}
