@@ -56,15 +56,38 @@
 // h1.addEventListener("click", handleTitleCheck);
 
 // 4-1
-const loginForm = document.getElementById("login-form");
-const loginInput = loginForm.querySelector("input");
-const loginButton = loginForm.querySelector("button");
+// const loginForm = document.querySelector("#login-form");
+// const loginInput = loginForm.querySelector("#login-form input");
+// const loginButton = loginForm.querySelector("button");
 
-function onLoginBtnClick() {
-    const value = loginInput.value;
-    if (value === "") {
-        alert("Please write your name");
-    }
+// function onLoginBtnClick() {
+//     const username = loginInput.value;
+//     if (username === "") {
+//         alert("Please write your name");
+//     } else if (username.length > 15) {
+//         alert("Your name is too long");
+//     }
+// }
+
+// 4-3
+// const link = document.querySelector("a");
+
+// function handleLinkClick(e) {
+//     e.preventDefault();
+//     alert("clicked!");
+// }
+
+// link.addEventListener("click", handleLinkClick);
+
+// 4-4
+const loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form input");
+
+function onLoginSubmit(event) {
+    event.preventDefault();
+    const username = loginInput.value;
+    loginForm.classList.add("hidden");
+    console.log(username);
 }
 
-loginButton.addEventListener("click", onLoginBtnClick);
+loginForm.addEventListener("submit", onLoginSubmit);

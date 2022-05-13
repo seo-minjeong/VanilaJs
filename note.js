@@ -122,3 +122,35 @@ if (h1.classList.contains(clickedClass)) {
 } else {
     h1.classList.add(clickedClass);
 }
+
+// 4-1 Form Submission
+const loginForm = document.querySelector("#login-form");
+const loginInput = loginForm.querySelector("#login-form input");
+const loginButton = loginForm.querySelector("button");
+
+function onLoginBtnClick() {
+    const username = loginInput.value;
+    if (username === "") {
+        alert("Please write your name");
+    } else if (username.length > 15) {
+        alert("Your name is too long");
+    }
+}
+
+// 4-2 Events part two
+const loginForm2 = document.querySelector("#login-form");
+const loginInput2 = document.querySelector("#login-form input");
+
+function onLoginSubmit(event) {
+    // 어떤 event의 기본행동이든지 발생되지 않도록 막는거. (브라우저가 기본적으로 시행하는 동작)
+    event.preventDefault();
+    console.log(event);
+}
+
+function handleLinkClick(e) {
+    e.preventDefault();
+    console.log(e);
+}
+
+// 함수에 ()를 넣어줄시 한번만 실행함.
+loginForm2.addEventListener("submit", onLoginSubmit);
