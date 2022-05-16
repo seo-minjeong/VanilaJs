@@ -80,14 +80,32 @@
 // link.addEventListener("click", handleLinkClick);
 
 // 4-4
-const loginForm = document.querySelector("#login-form");
-const loginInput = document.querySelector("#login-form input");
+// window.onload = function () {
+//     const loginForm = document.querySelector("#login-form");
+//     const loginInput = document.querySelector("#login-form input");
+//     const greeting = document.querySelector("#greeting");
 
-function onLoginSubmit(event) {
-    event.preventDefault();
-    const username = loginInput.value;
-    loginForm.classList.add("hidden");
-    console.log(username);
-}
+//     const HIDDEN_CLASSNAME = "hidden";
 
-loginForm.addEventListener("submit", onLoginSubmit);
+//     function onLoginSubmit(event) {
+//         event.preventDefault();
+//         loginForm.classList.add(HIDDEN_CLASSNAME);
+//         const username = loginInput.value;
+//         paintGreetings(username);
+//     }
+
+//     function paintGreetings(username) {
+//         gretting.innerTExt = `Hello ${username}`;
+//         greeting.classList.remove(HIDDEN_CLASSNAME);
+//     }
+//     const savedUsername = localStorage.getItem(USERNAME_KEY);
+
+//     if (savedUsesrname === null) {
+//         loginForm.classList.remove(HIDDEN_CLASSNAME);
+//         loginForm.addEventListener("submit", onLoginSubmit);
+//     } else {
+//         paintGreetings();
+//     }
+
+//     loginForm.addEventListener("submit", onLoginSubmit);
+// };

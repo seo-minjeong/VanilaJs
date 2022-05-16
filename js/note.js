@@ -124,33 +124,86 @@ if (h1.classList.contains(clickedClass)) {
 }
 
 // 4-1 Form Submission
-const loginForm = document.querySelector("#login-form");
-const loginInput = loginForm.querySelector("#login-form input");
-const loginButton = loginForm.querySelector("button");
+// const loginForm = document.querySelector("#login-form");
+// const loginInput = loginForm.querySelector("#login-form input");
+// const loginButton = loginForm.querySelector("button");
 
-function onLoginBtnClick() {
-    const username = loginInput.value;
-    if (username === "") {
-        alert("Please write your name");
-    } else if (username.length > 15) {
-        alert("Your name is too long");
-    }
-}
+// function onLoginBtnClick() {
+//     const username = loginInput.value;
+//     if (username === "") {
+//         alert("Please write your name");
+//     } else if (username.length > 15) {
+//         alert("Your name is too long");
+//     }
+// }
 
 // 4-2 Events part two
-const loginForm2 = document.querySelector("#login-form");
-const loginInput2 = document.querySelector("#login-form input");
+// const loginForm2 = document.querySelector("#login-form");
+// const loginInput2 = document.querySelector("#login-form input");
 
-function onLoginSubmit(event) {
-    // 어떤 event의 기본행동이든지 발생되지 않도록 막는거. (브라우저가 기본적으로 시행하는 동작)
-    event.preventDefault();
-    console.log(event);
-}
+// function onLoginSubmit(event) {
+//     // 어떤 event의 기본행동이든지 발생되지 않도록 막는거. (브라우저가 기본적으로 시행하는 동작)
+//     event.preventDefault();
+//     console.log(event);
+// }
 
-function handleLinkClick(e) {
-    e.preventDefault();
-    console.log(e);
-}
+// function handleLinkClick(e) {
+//     e.preventDefault();
+//     console.log(e);
+// }
 
-// 함수에 ()를 넣어줄시 한번만 실행함.
-loginForm2.addEventListener("submit", onLoginSubmit);
+// // 함수에 ()를 넣어줄시 한번만 실행함.
+// loginForm2.addEventListener("submit", onLoginSubmit);
+
+// // 4-4
+// window.onload = function () {
+//     const loginForm = document.querySelector("#login-form");
+//     const loginInput = document.querySelector("#login-form input");
+//     const greeting = document.querySelector("#greeting");
+
+//     const HIDDEN_CLASSNAME = "hidden";
+
+//     function onLoginSubmit(event) {
+//         event.preventDefault();
+//         loginForm.classList.add(HIDDEN_CLASSNAME);
+//         const username = loginInput.value;
+//         greeting.innerText = "Hello" + username;
+//         // 위와 같은 동작을 수행
+//         greeting.innerText = `Hello ${username}`;
+//         loginForm.classList.remove(HIDDEN_CLASSNAME);
+//         console.log(username);
+//     }
+
+//     loginForm.addEventListener("submit", onLoginSubmit);
+// };
+
+// 4-5 최종 코드
+window.onload = function () {
+    const loginForm = document.querySelector("#login-form");
+    const loginInput = document.querySelector("#login-form input");
+    const greeting = document.querySelector("#greeting");
+
+    const HIDDEN_CLASSNAME = "hidden";
+
+    function onLoginSubmit(event) {
+        event.preventDefault();
+        loginForm.classList.add(HIDDEN_CLASSNAME);
+        const username = loginInput.value;
+        paintGreetings(username);
+    }
+
+    function paintGreetings(username) {
+        gretting.innerTExt = `Hello ${username}`;
+        greeting.classList.remove(HIDDEN_CLASSNAME);
+    }
+    const savedUsername = localStorage.getItem(USERNAME_KEY);
+
+    if (savedUsesrname === null) {
+        loginForm.classList.remove(HIDDEN_CLASSNAME);
+        loginForm.addEventListener("submit", onLoginSubmit);
+    } else {
+        paintGreetings();
+    }
+
+    loginForm.addEventListener("submit", onLoginSubmit);
+};
