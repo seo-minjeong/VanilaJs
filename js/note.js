@@ -193,12 +193,12 @@ window.onload = function () {
     }
 
     function paintGreetings(username) {
-        gretting.innerTExt = `Hello ${username}`;
+        gretting.innerText = `Hello ${username}`;
         greeting.classList.remove(HIDDEN_CLASSNAME);
     }
     const savedUsername = localStorage.getItem(USERNAME_KEY);
 
-    if (savedUsesrname === null) {
+    if (savedUsername === null) {
         loginForm.classList.remove(HIDDEN_CLASSNAME);
         loginForm.addEventListener("submit", onLoginSubmit);
     } else {
@@ -207,3 +207,32 @@ window.onload = function () {
 
     loginForm.addEventListener("submit", onLoginSubmit);
 };
+
+// 5-1 Timeouts and Dates
+// 첫번째 인수는 내가 실행하고자 하는 것 ,
+// 두번째 인수는 호출되는 함수 간격을 몇 ms로 할것인지 정함.
+setInterval(sayHello, 5000);
+
+const clock = document.querySelector("h2#clock");
+
+function getClock() {
+    const date = new Date();
+    const hours = String(date.getHours()).padStart(2, "0");
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+    const seconds = String(date.getSeconds()).padStart(2, "0");
+    clock.innerText = `${hours}:${minutes}:${seconds}`;
+}
+
+// 첫번째 인수는 내가 실행하고자 하는 것 ,
+// 두번째 인수는 호출되는 함수 간격을 몇 ms로 할것인지 정함.
+// 중요! 매초마다 실행하기 때문에 실시간처럼 보이는것임.
+getClock();
+setInterval(getClock, 1000);
+
+// 당장 실행하고 싶지않을때 setTimeout을 설정.
+// 1초뒤에 getClock이라는 함수를 실행하겠다.
+// setTimeout(getClock, 1000);
+
+// padStart
+// 문자열의 길이는 2가 되어야하고 , 길이가 2가 되지 않는다면 앞쪽에 "0"을 추가함.
+const hours = String(date.getHours()).padStart(2, "0");
