@@ -236,3 +236,24 @@ setInterval(getClock, 1000);
 // padStart
 // 문자열의 길이는 2가 되어야하고 , 길이가 2가 되지 않는다면 앞쪽에 "0"을 추가함.
 const hours = String(date.getHours()).padStart(2, "0");
+
+// 6-0 quotes
+// math.round(1.1) 소수점을 선언해도 정수로 떨어짐.
+// math.CEIL(1.5) 을 선언하면 2를 반환해줌.
+// math.floor(1.5) 을 선언하면 1을 반환해줌.
+// 배열에서 floor를 사용한 이유는 마지막 아이템을 반환받기 위해서
+
+// 6-1 random image
+// 랜덤이미지 출력
+// 배열안에 이미지를 담아놓고 랜덤으로 출력되게끔 처리!
+// bgImg라는 변수를 만들고 그 변수가 img 엘리먼트를 바디에 생성하게끔 처리.
+const images = ["0.jpeg", "1.jpeg", "2.jpeg"];
+
+const chosenImage = images[Math.floor(Math.random() * images.length)];
+
+const bgImage = document.createElement("img");
+
+bgImage.src = `img/${chosenImage}`;
+
+// prepend는 맨 위로 오게함.
+document.body.appendChild(bgImage);

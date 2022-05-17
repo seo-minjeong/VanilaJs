@@ -15,4 +15,4 @@ setInterval(getClock, 1000);
 
 // padStart
 // 문자열의 길이는 2가 되어야하고 , 길이가 2가 되지 않는다면 앞쪽에 "0"을 추가함.
-const hours = String(date.getHours()).padStart(2, "0");
+// const hours = String(date.getHours()).padStart(2, "0");
