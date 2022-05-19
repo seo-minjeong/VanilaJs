@@ -3,6 +3,7 @@ const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.getElementById("todo-list");
 
 const TODOS_KEY = "todos";
+
 const toDos = [];
 
 // 로컬 스토리지에 투두 배열을 집어넣음.
@@ -15,6 +16,9 @@ function saveToDos() {
 function deleteTodo(event) {
     const li = event.target.parentElement;
     li.remove();
+    // 우리가 클릭한 li.id와 다른 toDo는 남겨두고 싶다는 의미.
+    toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+    saveToDos();
 }
 
 function paintTodo(newTodo) {
@@ -47,8 +51,6 @@ function handleTodoSubmit(event) {
 }
 
 toDoForm.addEventListener("submit", handleTodoSubmit);
-
-function sayHello() {}
 
 const savedToDos = localStorage.getItem(TODOS_KEY);
 
