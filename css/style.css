@@ -11,10 +11,6 @@
     src: url("./Pretendard-Regular.otf");
 }
 
-body {
-    background-color: beige;
-}
-
 /* input 기본 스타일 초기화 */
 input {
     -webkit-appearance: none;
@@ -37,10 +33,6 @@ input {
 #clock {
     font-family: "pre-Bold";
     font-size: 50px;
-}
-#login-form {
-    display: flex;
-    flex-direction: column;
 }
 .login_input,
 .write_input {
